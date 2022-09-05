@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:link{/*기본속성*/
+            color:black;
+            text-decoration: none;
+        }
+        a:visited{/*한번이라도 클릭했을 시*/
+            color: hotpink;
+            text-decoration: none;
+        }
+        a:hover{/*마우스를 올렸을 때*/
+            color:red;
+            text-decoration: underline;
+        }
+        a:active{/*마우스 클릭*/
+            color: green;
+            background-color: black;
+            text-decoration: underline blue;
+        }
+    </style>
+</head>
+<body>
+    <h3>a tag에 링크걸기</h3>
+    <!--타겟이 있으면 새탭으로 염-->
+    <a href="http://www.naver.com">Naver.com-Target X</a><br>
+    <a href="http://www.nate.com" target="_blank">nate-Target O</a><br>
+    <a href="../day0720/ex3_image.html">20일 3번 예제</a>
+    <a href="ex3_ulmenu.html" target="_new">
+        <img src="../고양이/cat004.PNG" width="200" title="오늘 3번예제 입니다">
+    </a><br>
+    <a href="http://www.google.com" target="_blank">구글</a><br>
+</body>
+</html>

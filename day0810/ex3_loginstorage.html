@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gugi&family=Lobster&family=Rubik+Beastly&family=Single+Day&display=swap"
+        rel="stylesheet">
+    
+    <script>
+        window.onload=function(){
+            r=document.querySelector("div.result");
+            init_storage();
+            //적용 버튼 이벤트
+            document.getElementById("btnresult").onclick=function(){
+                //글자색
+                var tcolor=document.getElementById("tcolor").value;
+                //글자색 적용
+                r.style.color=tcolor;
+
+                //배경색
+                var bcolor=document.getElementById("bcolor").value;
+                //배경색 적용
+                r.style.backgroundColor=bcolor;
+
+                //글꼴
+                var selfont=document.getElementById("selfont").value;
+                //글꼴 적용
+                r.style.fontFamily=selfont;
+
+                //사이즈
+                var selsize=document.getElementById("selsize").value;
+                //사이즈 적용
+                r.style.fontSize=selsize;
+
+                //localStorage 에 글자속성들 저장하기
+                localStorage.tcolor=tcolor;
+                localStorage.bcolor=bcolor;
+                localStorage.selfont=selfont;
+                localStorage.selsize=selsize;
+
+                
+            }
+        }//onload
+
+        //localStorage값 가져와서 r에 적용
+        function init_storage(){
+            var tcolor=localStorage.tcolor;
+            var bcolor=localStorage.bcolor;
+            var selfont=localStorage.selfont;
+            var selsize=localStorage.selsize;
+
+            //r에 적용
+            r.style.color=tcolor;
+            r.style.backgroundColor=bcolor;
+            r.style.fontFamily=selfont;
+            r.style.fontSize=selsize;
+
+            //태그에도 적용
+            document.getElementById("tcolor").value=tcolor;
+            document.getElementById("bcolor").value=bcolor;
+            document.getElementById("selfont").value=selfont;
+            document.getElementById("selsize").value=selsize;
+        }//사용자함수는 onload 바깥에다가
+    </script>
+</head>
+<body>
+    <div class="form">
+        <table class="table table-bordered" style="width:500px;">
+            <caption><b>localStorage 에 글자속성 저장하기</b></caption>
+            <tr>
+                <th width="100" style="background-color: pink;">글자색</th>
+                <td>
+                    <input type="color" id="tcolor" value="#ff00ff">
+                </td>
+            </tr>
+            <tr>
+                <th width="100" style="background-color: pink;">배경색</th>
+                <td>
+                    <input type="color" id="bcolor" value="#ccfcaf">
+                </td>
+            </tr>
+            <tr>
+                <th width="100" style="background-color: pink;">글꼴</th>
+                <td>
+                    <select id="selfont" class="form-control" style="width:250px;">
+                        <option hidden disabled selected>select fname</option>
+                        <option value="Gugi">Gugi</option>
+                        <option value="Lobster">Lobster</option>
+                        <option value="Rubik Beastly">Rubik</option>
+                        <option value="Single Day">Single</option>
+                </td>
+            </tr>
+            <tr>
+                <th width="100" style="background-color: pink;">크기</th>
+                <td>
+                    <select id="selsize" class="form-control" style="width:250px;">
+                        <option hidden disabled selected>select size</option>
+                        <script>
+                            for(var i=10;i<=40;i+=5){
+                                document.write("<option>"+i+"px</option>");
+                            }
+
+                        </script>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="button" class="btn btn-success" style="width:100px;" id="btnresult">글꼴 적용</button>
+                </td>
+            </tr>
+        </table>
+    </div>    
+    <div class="result alert alert-danger" style="width:500px;">
+        오늘은 비오는 수요일입니다
+    </div>
+</body>
+</html>

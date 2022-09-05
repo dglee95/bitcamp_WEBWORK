@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 집</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        #box1 {
+            background: #ffd800;
+            float: left;
+            width: 50%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-family: 'Song Myung';
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #box2 {
+            background: #0094ff;
+            float: right;
+            width: 50%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-family: 'Song Myung';
+            font-size: 20px;
+            cursor: pointer;
+
+        }
+
+        #tb1 {
+            margin-left: 20px;
+            width: 90%;
+            position: absolute;
+            left: 5%;
+            top: 60px;
+            border-collapse: separate;
+            border-spacing: 8px;
+            text-align: center;
+        }
+
+        #tb2 {
+            margin-left: 20px;
+            width: 100%;
+            position: absolute;
+            top: 130px;
+            border-collapse: separate;
+            border-spacing: 8px;
+            text-align: center;
+            display: block;
+            overflow-x: auto;
+        }
+
+        #tb2 td {
+            border: 1px solid #ace;
+            width: 100px;
+            height: 40px;
+            line-height: 20px;
+            font-family: "Song Myung";
+            text-overflow: ellipsis;
+        }
+
+        th {
+            font-family: 'Song Myung';
+            font-size: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:focus {
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:active {
+            text-decoration: none;
+        }
+
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            padding-top: 200px;
+            padding-left: 200px;
+            width: 60%;
+            height: 20%;
+        }
+
+        .container {
+            display: flex;
+            /* display: inline-flex; */
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            position: absolute;
+            top: 110%;
+            left: 10%;
+        }
+
+        .item{
+            cursor: wait;
+            padding-left: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var b1 = document.getElementById("box1");
+            b1.onmouseover = function () {
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="box1"><a href="https://events.ohou.se/raffleSummer?outbound=false&click_action_type=webview"
+            target="_blank">모던 그 자체! 드롱기 주방가전 세트가 0원</a></div>
+    <div id="box2"><a href="https://ohou.se/exhibitions/2031" target="_blank">첫 구매라면 누구나 최대 2만원 할인받기</a></div>
+    <table id="tb1">
+        <th><a href="https://ohou.se/">오늘의집</a></th>
+        <td><a href="https://ohou.se/">커뮤니티</a></td>
+        <td><a href="https://ohou.se/store">스토어</a></td>
+        <td><a href="https://ohou.se/experts">이사/시공/수리</a></td>
+        <td><a href="">돋보기</a></td>
+        <td><a href="https://ohou.se/cart">카트</a></td>
+        <td><a href="https://ohou.se/users/sign_in?redirect_to=%2Fcart">로그인</a></td>
+        <td><a href="https://ohou.se/normal_users/new">회원가입</a></td>
+        <td><select id="selimage" style="text-align: center; width:70px;">
+                <!--디폴트가 첫번째가 됨 selected 하면 첫번째로 됨-->
+                <option selected>글쓰기</option>
+                <option>사진 올리기</option>
+                <option>집들이 글쓰기</option>
+                <option>노하우 글쓰기</option>
+                <option>상품 리뷰 쓰기</option>
+                <option>시공 전문가 리뷰쓰기</option>
+                <option>인테리어 질문하기</option>
+            </select></td>
+    </table>
+    <table width="100%" border="0" id="tb2">
+        <td>홈</td>
+        <td>팔로잉</td>
+        <td>사진</td>
+        <td>집들이</td>
+        <td>노하우</td>
+        <td>전문가집들이</td>
+        <td>셀프가이드</td>
+        <td>질문과답변</td>
+        <td>3D인테리어</td>
+        <td>이벤트</td>
+    </table>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../고양이/cat001.PNG" alt="cat001" width="1100">
+            </div>
+            <div class="carousel-item">
+                <img src="../고양이/cat002.PNG" alt="cat002" width="1100">
+            </div>
+            <div class="carousel-item">
+                <img src="../고양이/cat003.PNG" alt="cat002" width="1100">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <div class="container">
+        <script>
+            var arr3 = new Array();
+            for (var i = 1; i <= 9; i++) {
+                arr3.push("../고양이/cat00" + i + ".PNG")
+            }
+            var s="";
+            for (var i = 0; i < arr3.length; i++) {
+                s += "<figure class='item'>";
+                s += "<img src='" + arr3[i] + "' width=100>";
+                s += "<figcaption><b>" + i + "고양이 </b></figcaption>";
+                s += "</figure>";
+            };
+            document.write(s);
+
+        </script>
+    </div>
+</body>
+
+</html>

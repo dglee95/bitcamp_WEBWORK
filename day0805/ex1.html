@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            position: absolute;
+            top: 90px;
+            border: 6px solid blue;
+            border-collapse: collapse;
+            width: 800px;
+        }
+
+        th {
+            background-color: pink;
+            border: 1px solid gray;
+        }
+
+        td {
+            border: 1px solid gray;
+            text-align: center;
+            color: d;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>자바스크립트,CSS 로 구구단 작성</h1>
+    <table>
+        <script>
+            document.write("<tr>")
+            for (var i = 2; i <= 9; i++) {
+                document.write("<th>" + i + "단</th>")
+            }
+            document.write("</tr>");
+            for (var j = 1; j <= 9; j++) {
+                document.write("<tr>");
+                for (var i = 2; i <= 9; i++) {
+                    document.write("<td>" + i + "x" + j + "=" + i * j + "</td>");
+
+                }
+                document.write("<br>")
+                document.write("</tr>");
+            }
+
+        </script>
+    </table>
+</body>
+
+</html>

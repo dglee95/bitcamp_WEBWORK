@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Hi+Melody&family=Rubik+Moonrocks&family=Song+Myung&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+
+    <style>
+        #img1{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        #div1{
+            position: absolute;
+            left: 20px;
+            top: 220px;
+            border: 3px double magenta;
+            width: 220px;
+            height: 180px;
+            color: rebeccapurple;
+            overflow: visible;
+            font-size: 30px;
+            font-family: "Song Myung";
+            border-radius: 10px;
+            background-image: repeating-radial-gradient(red 5%, yellow 10%, green 15%);
+        }
+    </style>
+</head>
+<body>
+    <img src="../고양이/cat011.PNG" width="200" height="180" id="img1">
+    <div id="div1">
+    </div>
+    <script>
+        var img1=document.getElementById("img1");
+        var div1=document.getElementById("div1");
+        img1.onclick=function(){
+            var s="이미지 정보<br>"
+            s+="이미지명:"+this.getAttribute("src")+"<br>";
+            s+="너비:"+this.getAttribute("width")+"<br>";
+            s+="높이:"+this.getAttribute("height")+"<br>";
+
+            div1.innerHTML=s;
+        }
+    </script>
+
+</body>
+</html>

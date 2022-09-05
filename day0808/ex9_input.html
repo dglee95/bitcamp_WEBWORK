@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Hi+Melody&family=Rubik+Moonrocks&family=Song+Myung&display=swap"
+        rel="stylesheet">
+    <style>
+        .tb1 {
+            border: 1px solid gray;
+        }
+
+        #div1 {
+            border-color: magenta;
+            border-style: dashed;
+            border-width: 20px;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-family: 'Hi Melody';
+            font-size: 50px;
+            margin-top: 200px;
+            margin-left: 200px;
+            animation: mymove2 1.5s infinite;
+            background-color: #c1ec1e;
+            color: #3c93c9;
+            border-radius: 500px;
+
+        }
+
+        @keyframes mymove2 {
+            0% {}
+
+            50% {
+                transform: rotateZ(720deg);
+            }
+
+            100% {
+                transform: rotateZ(1440deg);
+            }
+        }
+
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+    </style>
+</head>
+
+<body>
+    <table class="tb1">
+        <tr>
+            <th>입력 후 엔터</th>
+            <td><input type="text" id="txt1" placeholder="값을 입력하시오" style="width:200px;"></td>
+            <td><label><input type="checkbox" id="chk1">테두리</label></td>
+        </tr>
+        <tr>
+            <th>글자 크기</th>
+            <td><label><input type="radio" value="10" name="px">10</label>
+                <label><input type="radio" value="20" name="px">20</label>
+                <label><input type="radio" value="30" name="px">30</label>
+                <label><input type="radio" value="40" name="px">40</label>
+                <label><input type="radio" value="50" name="px" checked>50</label>
+            </td>
+        </tr>
+        <tr>
+            <th>배경색</th>
+            <td><label><input type="color" value="#c1ec1e" id="color1"></label></td>
+            <th>글자색</th>
+            <td><label><input type="color" value="#3c93c9" id="color2"></label></td>
+        </tr>
+        <tr>
+            <th>글꼴</th>
+            <td><label><input type="radio" value="Black And White Picture" name="font">1</label>
+                <label><input type="radio" value="Edu VIC WA NT Beginner" name="font">2</label>
+                <label><input type="radio" value="Hi Melody" name="font" checked>3</label>
+            </td>
+        </tr>
+    </table>
+    <div id="div1">자바스크립트</div>
+
+    <script>
+        var txt1 = document.getElementById("txt1").onkeyup = function (e) {
+            if (e.keyCode == 13) {
+                document.querySelector("#div1").innerHTML = this.value;
+            }
+        }
+
+        var tradio = document.getElementsByName("px");
+        for (var i = 0; i < tradio.length; i++) {
+            tradio[i].onclick = function () {
+                var v = this.value;
+                document.querySelector("#div1").style.fontSize = v + "px";
+            }
+        }
+
+        document.getElementById("color1").onchange = function () {
+            var selcolor = this.value;
+            document.querySelector("#div1").style.backgroundColor = selcolor;
+        }
+        document.getElementById("color2").onchange = function () {
+            var selcolor = this.value;
+            document.querySelector("#div1").style.color = selcolor;
+        }
+        var fradio = document.getElementsByName("font");
+        for (var i = 0; i < fradio.length; i++) {
+            fradio[i].onclick = function () {
+                var v = this.value;
+                document.querySelector("#div1").style.fontFamily = v;
+            }
+        }
+
+        document.getElementById("chk1").onclick = function () {
+
+            var check = this.checked;
+            if (check)
+                document.querySelector("#div1").style.borderStyle = "double";
+            else
+                document.querySelector("#div1").style.borderStyle = "groove";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .div1{
+            position: absolute;
+            left: 20%;
+            top: 20%;
+            font-size: 30px;
+            display: block;
+        }
+        .div2{
+            position: absolute;
+            left: 30%;
+            top: 30%;
+            font-size: 30px;
+            display: none;
+        }
+        .div3{
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            font-size: 30px;
+            visibility: visible;
+        }
+        .div4{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            font-size: 30px;
+            visibility: hidden;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                console.log($(".div1").is(":visible"));
+                console.log($(".div2").is(":visible"));
+                console.log($(".div3").is(":visible"));
+                console.log($(".div4").is(":visible"));
+                $(".div1").slideUp();
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="div1">DIV1</div>
+    <div class="div2">DIV2</div>
+    <div class="div3">DIV3</div>
+    <div class="div4">DIV4</div>
+    <button type="button" class="btn btn-neon-purple">버튼</button>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Jua&family=Mochiy+Pop+One&family=Rubik+Moonrocks&family=Song+Myung&display=swap"
+        rel="stylesheet">
+    <link href="../rainbow.jpg" rel="shortcut icon" type="image/x-icon">
+    <title id="title">제목제목</title>
+    <style>
+        #btn1 {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 300px;
+            height: 80px;
+            border-radius: 5px;
+            border: 10px double red;
+            color: cyan;
+            line-height: 20px;
+            animation: mymove2 1.5s infinite;
+            font-size: 40px;
+            font-family: 'Black And White Picture';
+
+        }
+
+        .bit1 {
+            position: absolute;
+            left: 50px;
+            top: 100px;
+            border: 15px outset blue;
+            border-radius: 5px 10px 5px 10px;
+            box-shadow: 12px 12px 3px #444;
+            width: 700px;
+            height: 300px;
+            line-height: 300px;
+            font-family: "Song Myung";
+            font-size: 60px;
+            text-align: center;
+            color: whitesmoke;
+            animation: mymove 1.5s infinite;
+            animation-direction: alternate;
+            
+
+
+
+
+        }
+
+        .bit2 {
+            background-image: linear-gradient(180deg, yellow, fuchsia 40%, blue);
+            position: absolute;
+            left: 100px;
+            top: 550px;
+            border: 15px inset maroon;
+            border-radius: 5px 10px 5px 10px;
+            box-shadow: 12px 12px 3px #444;
+            width: 700px;
+            height: 300px;
+            line-height: 300px;
+            font-family: 'Song Myung';
+            font-size: 70px;
+            background-color: red;
+            
+            /* background-image: conic-gradient(red, yellow, green); */
+            /* background-image: repeating-radial-gradient(red, yellow 10%, green 15%); */
+            /* background-image: repeating-conic-gradient(red 0deg 10deg, yellow 10deg 20deg, blue 20deg 30deg); */
+            text-align: center;
+            color: black;
+        }
+        
+        @keyframes mymove2{
+            0% {
+                background-image: repeating-conic-gradient(fuchsia 0deg 15deg, darkblue 15deg 30deg);
+                left:20px;
+            }
+            50%{
+                background-image: repeating-conic-gradient( blue 0deg 15deg, yellow 15deg 30deg);
+                left:400px;
+                transform: rotateZ(360deg);
+                
+            }
+            100%{
+                background-image: repeating-conic-gradient(yellow 0deg 15deg, red 15deg 30deg);
+                left:20px;
+            }
+
+        }
+
+        @keyframes mymove {
+            0% {
+                background-color: red;
+                left: 50px;
+                top: 100px;
+            }
+
+            25% {
+                background-color: orangered;
+                left: 200px;
+                top: 200px;
+            }
+
+            50% {
+                background-color: goldenrod;
+                left: 200px;
+                top: 100px;
+            }
+
+            75% {
+                background-color: green;
+                left: 50px;
+                top: 200px;
+            }
+
+            100% {
+                background-color: darkblue;
+                left: 50px;
+                top: 100px;
+
+            }
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn1 = document.getElementById("btn1");
+            var bit1 = document.querySelector(".bit1");
+            var bit2 = document.querySelector(".bit2");
+            btn1.onclick = function () {
+                var name = prompt("이름을 입력하세요", "강호동");
+                if (name == null)
+                    alert("이름을 입력하세요");
+                else {
+                    var s = "내 이름은 " + name + "입니다";
+                    bit1.innerHTML=s;
+                    bit2.innerHTML=s;
+
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="bit1">
+    </div>
+
+    <div class="bit2">
+    </div>
+
+    <button type="button" class="btn btn-primary" id="btn1"><b>클릭해보세요</b></button>
+</body>
+
+</html>

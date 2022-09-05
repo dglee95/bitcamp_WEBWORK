@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Hi+Melody&family=Rubik+Moonrocks&family=Song+Myung&display=swap" rel="stylesheet">
+    <title>숙제</title>
+    <style>
+        .div{
+            width: 465px;
+            height: 465px;
+            line-height: 465px;
+            text-align: center;
+            
+        }
+        
+        #text{
+            border-radius: 10px;
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            margin-top: 10px;
+            margin-left: 120px;
+            font-family: 'Song Myung';
+            font-size: 30px;
+            color: magenta;
+        }
+        .btn{
+            width: 150px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            margin-right: 5px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var t = document.getElementById("text");
+            var photo = document.getElementById("imga");
+            var b1=document.getElementById("btn1");
+            var b2=document.getElementById("btn2");
+            var b3=document.getElementById("btn3");
+            var b4=document.getElementById("btn4");
+            var b5=document.getElementById("btn5");
+            var b6=document.getElementById("btn6");
+            b1.onclick=function(){
+                photo.setAttribute("src","../음식사진/11.jpg");
+                t.innerText="메론빙수";
+            }
+            b2.onclick=function(){
+                photo.setAttribute("src","../음식사진/8.jpg");
+                t.innerHTML = "샌드위치";
+            }
+            b3.onclick=function(){
+                photo.setAttribute("src","../음식사진/2.jpg");
+                t.innerHTML = "꼬치";
+            }
+            b4.onclick=function(){
+                photo.setAttribute("width",235);
+            }
+            b5.onclick=function(){
+                photo.setAttribute("width",350);
+            }
+            b6.onclick=function(){
+                photo.setAttribute("width",465);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <button type="button" class="btn btn-success" id="btn1">메론빙수</button>
+    <button type="button" class="btn btn-info" id="btn2">샌드위치</button>
+    <button type="button" class="btn btn-warning" id="btn3">꼬치</button>
+    <br>
+    <button type="button" class="btn btn-primary" id="btn4">작게</button>
+    <button type="button" class="btn btn-danger" id="btn5">원래대로</button>
+    <button type="button" class="btn btn-success" id="btn6">크게</button>
+    <div class="div">
+        <img src="../고양이/cat001.PNG" id="imga" width="350">
+    </div>
+
+    <div id="text">
+        <b>고양이</b>
+    </div>
+</body>
+</html>

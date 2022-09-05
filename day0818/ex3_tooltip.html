@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        pre{
+            background-color: white;
+            border-color: white;
+        }
+        b.view{
+            cursor: pointer;
+        }
+        div.mytooltip{
+            line-height: 1.5;/*행 높이, 줄간격*/
+            color: white;
+            width: fit-content;
+            background-color: #f90;
+            border: 2px solid white;
+            padding: 10px;
+            font-size: 12px;
+            border-radius: 30px;
+            
+            position: absolute;
+            opacity: 0.8;
+            display: none; /*공간 차지 안함*/
+        }
+    </style>
+    <script>
+        $(function(){
+            $("a").bind({
+                mouseover:function(){
+                    $("div.mytooltip").fadeIn();
+                },mouseout:function(){
+                    $("div.mytooltip").fadeOut();
+                },mousemove:function(e){//마우스 위치 e를 받아야 함
+                    $("div.mytooltip").css({
+                        left:e.pageX+"px",
+                        top:e.pageY+"px"
+                    });
+                }
+            });
+            
+            $("b.view").bind({
+                mouseover:function(){
+                    $("div.mytooltip").fadeIn();
+                },mouseout:function(){
+                    $("div.mytooltip").fadeOut();
+                },mousemove:function(e){//마우스 위치 e를 받아야 함
+                    $("div.mytooltip").css({
+                        left:e.pageX+"px",
+                        top:e.pageY+"px",
+                        color:"black",
+                    });
+
+                    //b태그 안의 글자를 툴팁에 넣기(작은 이미지와 함께)
+                    var s="<img src='../미야자키/02.png' width='60'>";
+                    s+="<b>"+$(this).text()+"</b>";
+
+                    $("div.mytooltip").html(s);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>tooltip 링크 부분에 마우스를 올려보세요</h3>
+    <a style="font-size:20px;cursor:pointer;">Tooltip</a>
+    <br>
+    <pre>
+        안녕하세요
+        반가워요
+        오늘은 목요일입니다
+        [OSEN=박소영 기자] ‘나는 솔로’ 9기 영숙(가명)이 의사 광수(가명)를 차지한 소감과 
+        악플에 따른 고충을 토로했다.
+
+영숙은 18일 오전 개인 SNS를 통해 “아침부터 <b class="view">조직검사</b>니 뭐니 컨디션이 많이 안 좋은데데 악플이 많이 
+보여서 표정 관리가 힘들었나 봐요. 관리한다고 
+한 건데 프로 방송인이 아니다 보니 실패하고 말았내요”라는 메시지를 남겼다.
+
+이어 그는 “<b class="view">광수님이랑</b> 좀 떨어져 있던 것도 다른 사람 얘기하고 있는데 
+어깨 기대고 있냐는 댓글 보니까 좀 위축되더라고요. 이래저래 긴장하고 굳어 있었네요”라며 
+전날 진행된 '나는 솔로’ 9기 <b class="view">라이브 방송</b> 때 표정이 좋지 못했던 걸 사과했다.
+    </pre>
+
+    <div class="mytooltip">
+        Java<br>
+        HTML5<br>
+        CSS3<br>
+        ES6<br>
+        Oracle
+    </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Hi+Melody&family=Kirang+Haerang&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+
+    <style>
+        div.a {
+            font-size: 2em;
+            font-family: 'Rubik Moonrocks';
+        }
+        div.b>figure{
+            float: left;/*가로방향으로*/
+        }
+
+        div.b>figure>img{
+            border: 1px solid black;
+            border-radius: 30px 60px 100px 20px;/*left top / right top / right bottom / left bottom*/
+        }
+
+        div.b>figure>figcaption>b{
+            font-size: 25px;
+            margin-left: 20px;
+            font-family: 'Hi Melody';
+        }
+
+        div.d>figure>figcaption>b{
+            font-size: 30px;
+            margin-left: 30px;
+            font-family: 'Kirang Haerang';
+        }
+
+
+        h3.c{
+            clear: both;/*float:left 속성을 해제*/
+        }
+
+        div.d{
+            width: 900px;
+            height: 300px;
+            border: 2px solid gray;
+            
+        }
+
+        div.d{
+            display: flex;
+            /*row 가로 왼쪽부터
+            column 세로 위쪽부터 
+            row-reverse 가로 오른쪽부터 
+            column-reverse 세로 아래쪽부터*/
+            flex-direction: row; 
+        }
+
+        div.e{
+            width: 500px;
+            height: 300px;
+            border: 30px ridge greenyellow;
+            display: flex;
+            flex-direction: row;
+            background-color: lightgoldenrodyellow;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        div.e>figure>figcaption>b{
+            font-size: 100px;
+            margin-left: 10px;
+            font-family: 'Rubik Moonrocks';
+        }
+        div.e img{
+            border-radius: 40px;
+            box-shadow: 10px 10px 2px green;
+        }
+
+    </style>
+</head>
+
+<body>
+    <img src="../음식사진/1.jpg" width="200" border="10" align="left" hspace="50" alt="이미지없음" title="배고파">
+    <!--width에 px안써도됨-->
+    <div class="a">java<br>oracle<br>html<br>css</div>
+    <hr>
+    <hr>
+    <div class="b"><!--구역 미리 정해놓으면 나중에 옮기고 싶을때 옮길 수 있음-->
+        <figure>
+            <img src="../음식사진/12.jpg" width="150">
+            <figcaption><b>순두부라면</b></figcaption>
+        </figure>
+
+        <figure>
+            <img src="../음식사진/8.jpg" width="150">
+            <figcaption><b>샌드위치</b></figcaption>
+        </figure>
+
+        <figure>
+            <img src="../음식사진/9.jpg" width="150">
+            <figcaption><b>연근조림</b></figcaption>
+        </figure>
+        
+        <h3 class="c">안녕하세요</h3>
+        
+    </div>
+    
+    <div class="d">
+        <figure>
+            <img src="../연예인사진/12.jpg" width="150">
+            <figcaption><b>박보영</b></figcaption>
+        </figure>
+
+        <figure>
+            <img src="../연예인사진/6.jpg" width="150">
+            <figcaption><b>한예슬</b></figcaption>
+        </figure>
+
+        <figure>
+            <img src="../연예인사진/15.jpg" width="150">
+            <figcaption><b>설현</b></figcaption>
+        </figure>
+        
+    </div>
+
+    <div class="e">
+        <figure>
+            <img src="../고양이/cat0001.PNG" width="200">
+            <figcaption><b>1</b></figcaption>
+        </figure>
+
+        <figure>
+            <img src="../고양이/cat0002.PNG" width="150">
+            <figcaption><b>2</b></figcaption>
+        </figure>
+
+        
+    </div>
+
+</body>
+
+</html>

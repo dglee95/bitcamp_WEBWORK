@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        $(function(){
+            $(".btn-neon-red").click(function(){
+                console.log("성공");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <button type="button" class="btn btn-neon-red"><a>red</a></button>
+        <button type="button" class="btn btn-neon-orange"><a>orange</a></button>
+        <button type="button" class="btn btn-neon-yellow"><a>yellow</a></button>
+        <button type="button" class="btn btn-neon-green"><a>green</a></button>
+        <button type="button" class="btn btn-neon-blue"><a>blue</a></button>
+        <button type="button" class="btn btn-neon-purple"><a>purple</a></button>
+    </div>
+</body>
+
+</html>

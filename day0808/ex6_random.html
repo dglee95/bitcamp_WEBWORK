@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        #photo {
+            width: 400px;
+            height: 470px;
+            border: 10px groove gray;
+        }
+        .msg{
+            font-size: 27px;
+            font-family: 'Song Myung';
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var p=document.getElementById("photo");
+            var m=document.querySelector(".msg");
+            //0.5초마다 연예인사진이 바뀌게 하기
+            //배열
+            var sarr=["재미있는 자바스크립트!","오늘은 비가 오네요!",
+            "이번주는 덥고 습한날씨가 될듯..","배고파요!!!!!!"];
+            var carr=["red","green","magenta","orange","blue","gray","black"];
+            
+            setInterval(() => {
+                //1~20사이의 난수 발생 후 이미지 변경하기
+                var num = parseInt(Math.random() * 20) + 1;
+                // p.setAttribute("src","../연예인사진/"+num+".jpg");
+                p.setAttribute("src",`../연예인사진/${num}.jpg`);//es6에서 추가된 기능 에(크마)스(크립트)6
+            }, 500)
+
+            setInterval(()=> {
+
+                var sidx=parseInt(Math.random()*4);//0~2사이 래넏ㅁ값
+                //글자색 랜덤하게
+                var cidx=parseInt(Math.random()*7);
+                m.style.color=carr[cidx];
+                m.innerHTML=sarr[sidx];
+            },2000)
+        }
+    </script>
+</head>
+
+<body>
+    <img src="../연예인사진/15.jpg" id="photo">
+    <div class="msg">111</div>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Hi+Melody&family=Kirang+Haerang&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+
+    <style>
+        .tb1{
+            width: 508px;
+            border: 3px solid gray; /*맨 바깥 테두리*/
+            border-collapse: collapse; /*칸과 칸 사이 여백 없애기*/
+        }
+        
+        .tb2{
+            width: 508px;
+            height: 400px;
+            border: 3px solid gray; /*맨 바깥 테두리*/
+            border-collapse: collapse; /*칸과 칸 사이 여백 없애기*/
+        }
+
+        .tb1 td,.tb1 th{ /*, 로 동시에 적용하겠다*/
+            border: 1px solid green;
+        }
+
+        .tb2 td,.tb2 th{ /*, 로 동시에 적용하겠다*/
+            border: 5px ridge whitesmoke;
+        }
+
+        .tb1 tr th{
+            background-color: springgreen;
+            color: white;
+        }
+
+        .tb1 tr th:active{ /*마우스 클릭시 적용되는 속성*/
+            background-color: rgb(119, 0, 255);
+            color: rgb(255, 252, 62);
+        }
+
+        .tb1 tr td{
+            background-color: #e2a;
+            color:blue;
+        }
+
+        .tb1 tr td:hover{/*마우스 올렸을때 속성*/
+            background-color: #2bb;
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" style="width:300px;">
+        <caption>[표 1]</caption>
+        <tr height="50" bgcolor="orange"><!--줄-->
+            <td align="center">one</td><!--1칸-->
+            <td align="right" valign="top">two</td>
+            <td valign="bottom" bgcolor="gray">three</td>
+        </tr>
+        <tr  height="50" align="center">
+            <td colspan="3"> <!--가로 3칸-->
+                3 칸 합침
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table class="tb1">
+        <caption><h2>[표 2]</h2></caption>
+        <tr height="40">
+            <th>사진</th>
+            <th>이름</th><!--1칸 헤더라는 의미 가운데 정렬, 굵게 속성 주로 제목에 많이 씀-->
+            <th>주소</th>
+            <th>핸드폰</th>
+        </tr>
+        <tr>
+            <td rowspan="3"> <!--세로 3칸-->
+                <img src="../고양이/cat0003.PNG" width="300" height="250" align="center">
+            </td>
+            <td>뱅갈</td><td>강남</td><td>010-4154-8185</td>
+        </tr>
+        <tr>
+            <td>코숏</td><td>서초</td><td>010-2812-8212</td>
+        </tr>
+        <tr>
+            <td>메인쿤</td><td>신림</td><td>010-2124-2193</td>
+        </tr>
+    </table>
+
+    <table class="tb2">
+        <caption style="color:#2bb; font-size:30px;"><h1>[ppt 48]</h1></caption>
+        <tr>
+            <td rowspan="3" bgcolor="skyblue" valign="top"><b>일</b></td>
+            <td colspan="3" bgcolor="pink"><u>이</u></td>
+        </tr>
+        <tr>
+            <td colspan="2" bgcolor="pink"><i>삼</i></td>
+            <td rowspan="3" bgcolor="skyblue" valign="bottom">사<sup>4</sup></td>
+        </tr>
+        <tr>
+            <td style="background-image: url('http://127.0.0.1:5500/image/%EA%B3%A0%EC%96%91%EC%9D%B4/cat0003.PNG');">오<sub>5</sub></td>
+            <td><small>육</small></td>
+        </tr>
+        <tr>
+            <td colspan="3" bgcolor="pink"><big><strike>칠</strike></big></td>
+        </tr>
+    </table>
+
+</body>
+</html>

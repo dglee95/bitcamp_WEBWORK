@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .container{
+          
+        }
+        #btn1{
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+        .btnclass{
+            position: absolute;
+            left: 30%;
+            top: 20%;
+        }
+        .msgbox{
+            border: 5px outset gold;
+            border-radius: 20px;
+            position: relative;
+            margin-top: 200px;
+            margin-left: -105px;
+            width: 600px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .msg1{
+            /* border: 1px solid orange; */
+            margin-top: 30px;
+            margin-left: 100px;
+            width: 400px;
+            height: 50px;
+        }
+
+        .msg2{
+            /* border: 1px solid royalblue; */
+            margin-top: 10px;
+            margin-left: 100px;
+            width: 400px;
+            height: 50px;
+        }
+
+        .textbox{
+            position: relative;
+            left: 70%;
+            top: 120px;
+            width: 300px;
+            height: 400px;
+        }
+        h3{
+            font-weight: bold;
+            font-family: 'Hahmlet';
+            margin-top: 0px;
+        }
+        li{
+            list-style: none;
+        }
+        li h3:hover{
+            color: yellow;
+            background-color: black;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        $(function(){
+            $(".cinema").hide();
+            $(".movie").hide();
+
+            $("#btn1").click(function(){
+                var b2='<button type="button" class="btn btn-neon-purple" id="btn2">극장 선택</button>';
+                b2+='&emsp;<button type="button" class="btn btn-neon-purple" id="btn3">영화 선택</button>';
+                b2+='<div class="msgbox"><div class="msg1">&nbsp;</div><div class="msg2">&nbsp;</div></div>';
+                $("div.btnclass").html(b2);
+                
+            });
+
+            $(document).on("click","#btn2",function(){
+                $(".movie").hide();
+                $(".cinema").fadeToggle();
+            });
+   
+            $(document).on("click","#btn3",function(){
+                $(".cinema").hide();
+                $(".movie").fadeToggle();
+            });
+
+            $(document).on("click",".cinema>li",function(){
+                $("div.msgbox .msg1").html("<h3> 극장명 : "+$(this).find("h3").text()+"</h3>");
+            });
+            $(document).on("click",".movie>li",function(){
+                $("div.msgbox .msg2").html("<h3> 영화명 : "+$(this).find("h3").text()+"</h3>");
+            });
+        });
+    </script>
+</head>
+<button type="button" class="btn btn-neon-green" id="btn1">영화 예매</button>
+    <div class="container">
+        
+        <div class="btnclass"></div>
+        <div class="textbox">
+            <ul class="cinema">
+                <li><h3>CGV 강남점</h3></li>
+                <li><h3>MEGABOX 강남점</h3></li>
+                <li><h3>CGV 교보점</h3></li>
+            </ul>
+            <ul class="movie">
+                <li><h3>바람과 함께 사라지다</h3></li>
+                <li><h3>엑시트</h3></li>
+                <li><h3>괴물</h3></li>
+            </ul>
+        </div>
+    </div>
+<body>
+    
+</body>
+</html>

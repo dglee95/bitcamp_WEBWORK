@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        body {
+            background-color: #add8e6;
+        }
+
+        div.container {
+            width: 630px;
+            height: 120px;
+            background-color: white;
+            margin-left: 200px;
+            margin-top: 80px;
+            border-radius: 100px;
+        }
+
+        div.lotto {
+            float: left;
+            font-size: 45px;
+            font-family: 'Rubik Moonrocks';
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            border-radius: 100px;
+            background-color: #ffb6c1;
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        div.day {
+            margin-top: 50px;
+            margin-left: 300px;
+            font-size: 2.5em;
+        }
+
+        div.day b {
+            color: blue;
+        }
+
+        #btnlotto {
+            width: 200px;
+            height: 2.5em;
+            margin-left: 400px;
+            margin-top: 30px;
+            cursor: pointer;
+
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var s1 = document.querySelector(".day>span");
+
+            //현재날짜
+            var date = new Date();
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            var d = date.getDate();
+
+            var s = y + "-" + (m < 10 ? "0" : "") + m + "-" + (d < 10 ? "0" : "") + d;
+            s1.style.color = "gray";
+            s1.style.fontSize = "26px";
+            s1.innerHTML = s;
+
+            document.getElementById("btnlotto").onclick = function () {
+                //div.lotto의 요소값을 배열형태로 구하기
+                // var dlotto=document.getElementsByClassName("lotto");
+                var dlotto = document.querySelectorAll("div.lotto");
+                //예: 1번을 변경해보자
+                
+
+                //1~45 랜덤값을 중복되지 않게 구한 후 위의 배열에 넣어주세요
+                //단 오름차순 정렬로 넣어주세요
+                var lotto = new Array(6);
+                //6개의 난수 구하기(중복처리)
+                for (var i = 0; i < lotto.length; i++) {
+                    lotto[i] = parseInt(Math.random() * 45) + 1;//1~45
+                    for (var j = 0; j < i; j++) {
+                        if (lotto[i] == lotto[j]) {
+                            i--;
+                            break;
+                        }
+                    }
+                }
+                //오름차순 정렬
+                for (var i = 0; i < lotto.length - 1; i++) {
+                    for (var j = i + 1; j < lotto.length; j++) {
+                        if (lotto[i] > lotto[j]) {
+                            var temp = lotto[i];
+                            lotto[i] = lotto[j];
+                            lotto[j] = temp;
+                        }
+                    }
+
+                }
+                for(var i=0;i<lotto.length;i++){
+                dlotto[i].innerHTML=lotto[i];
+                }
+                //0~6사이의 랜덤값을 구해서 그 번지의 배경색을
+                //역시 랜덤하게 변경해보자
+                var idx=parseInt(Math.random()*6);
+                var r0=parseInt(Math.random()*256);
+                var g0=parseInt(Math.random()*256);
+                var b0=parseInt(Math.random()*256);
+
+                var r1=parseInt(Math.random()*256);
+                var g1=parseInt(Math.random()*256);
+                var b1=parseInt(Math.random()*256);
+
+                var r2=parseInt(Math.random()*256);
+                var g2=parseInt(Math.random()*256);
+                var b2=parseInt(Math.random()*256);
+
+                var r3=parseInt(Math.random()*256);
+                var g3=parseInt(Math.random()*256);
+                var b3=parseInt(Math.random()*256);
+
+                var r4=parseInt(Math.random()*256);
+                var g4=parseInt(Math.random()*256);
+                var b4=parseInt(Math.random()*256);
+
+                var r5=parseInt(Math.random()*256);
+                var g5=parseInt(Math.random()*256);
+                var b5=parseInt(Math.random()*256);
+
+                var r6=parseInt(Math.random()*256);
+                var g6=parseInt(Math.random()*256);
+                var b6=parseInt(Math.random()*256);
+
+                var r7=parseInt(Math.random()*256);
+                var g7=parseInt(Math.random()*256);
+                var b7=parseInt(Math.random()*256);
+
+                var r8=parseInt(Math.random()*256);
+                var g8=parseInt(Math.random()*256);
+                var b8=parseInt(Math.random()*256);
+
+                var r9=parseInt(Math.random()*256);
+                var g9=parseInt(Math.random()*256);
+                var b9=parseInt(Math.random()*256);
+
+                var r10=parseInt(Math.random()*256);
+                var g10=parseInt(Math.random()*256);
+                var b10=parseInt(Math.random()*256);
+
+                var r11=parseInt(Math.random()*256);
+                var g11=parseInt(Math.random()*256);
+                var b11=parseInt(Math.random()*256);
+
+                // dlotto[idx].style.backgroundColor="rgba("+r+","+g+","+b+",1)";
+                dlotto[0].style.backgroundColor=`rgba(${r0},${g0},${b0},1)`;
+                dlotto[1].style.backgroundColor=`rgba(${r1},${g1},${b1},1)`;
+                dlotto[2].style.backgroundColor=`rgba(${r2},${g2},${b2},1)`;
+                dlotto[3].style.backgroundColor=`rgba(${r3},${g3},${b3},1)`;
+                dlotto[4].style.backgroundColor=`rgba(${r4},${g4},${b4},1)`;
+                dlotto[5].style.backgroundColor=`rgba(${r5},${g5},${b5},1)`;
+                dlotto[0].style.color=`rgba(${r6},${g6},${b6},1)`;
+                dlotto[1].style.color=`rgba(${r7},${g7},${b7},1)`;
+                dlotto[2].style.color=`rgba(${r8},${g8},${b8},1)`;
+                dlotto[3].style.color=`rgba(${r9},${g9},${b9},1)`;
+                dlotto[4].style.color=`rgba(${r10},${g10},${b10},1)`;
+                dlotto[5].style.color=`rgba(${r11},${g11},${b11},1)`;
+                
+               
+                dlotto[idx].style.color="white";
+                
+           
+               
+
+            }
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="day">
+        <b>1026</b>회
+        <span></span>
+    </div>
+    <div class="container">
+        <div class="lotto">10</div>
+        <div class="lotto">20</div>
+        <div class="lotto">30</div>
+        <div class="lotto">40</div>
+        <div class="lotto">50</div>
+        <div class="lotto">60</div>
+    </div>
+
+    <button type="button" class="btn btn-primary" id="btnlotto">로또 숫자 구하기</button>
+</body>
+
+</html>

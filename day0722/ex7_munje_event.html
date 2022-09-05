@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .sphoto {
+            width: 60px;
+            height: 60px;
+            border: 1px solid gray;
+            margin: 5px 5px;
+            cursor: wait;
+
+        }
+
+        #large_photo {
+            width: 400px;
+            height: 500px;
+            border: 10px groove gray;
+        }
+
+        #photo_box {
+            position: absolute;
+            left: 50px;
+            top: 100px;
+            width: 370px;
+            height: 530px;
+            border: 2px solid gray;
+            padding: 10px 10px;
+        }
+        #main_photo {
+            position: absolute;
+            left: 500px;
+            top: 115px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <h2>문제:작은 사진에 마우스를 올리면 큰 사진이 바뀌게 이벤트 추가하기</h2>
+    <div id="photo_box">
+        <script>
+            for (var i = 1; i <= 35; i++) {
+                if (i == 23)
+                    continue;
+                document.write("<img src='../쇼핑몰사진/" + i + ".jpg' class='sphoto'>");
+            }
+        </script>
+    </div>
+    <div id="main_photo">
+        <img id="large_photo" src="../음식사진/5.jpg">
+    </div>
+    <div>
+        <script>
+            //class 배열 얻기
+            //var s=document.getElementByClassName("sphto");
+            var s = document.querySelectorAll(".sphoto");
+            for (var o of s) {
+                o.onmouseover = function () {
+                    var sg = this.getAttribute("src");
+                    var l = document.querySelector("#large_photo");
+                    l.setAttribute("src", sg);
+                };
+            };
+        </script>
+    </div>
+</body>
+
+</html>

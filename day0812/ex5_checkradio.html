@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dongle&family=Gugi&family=Hahmlet&family=Lobster&family=Rubik+Beastly&family=Rubik+Burned&family=Rubik+Marker+Hatch&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <style>
+        body * {
+            font-size: 2rem;
+            /*2em은 각 상위태그의 2배씩 나중에는 2,4,8,16배 이런식*/
+            font-family: "Hahmlet";
+
+        }
+
+        input[type=radio],
+        input[type=checkbox] {
+            transform: scale(2);
+            /*-webkit-은 사파리랑 크롬만(없어도 됨)*/
+        }
+    </style>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                var s = "";
+
+                s += "내 고향 : " + $("input[name='gohang']:checked").val() + "<br>";//:checked를 안 주면 무조건 첫번째를 가져옴
+                //한개일때만 .is(":checked")를 쓰지 여러개일땐 $안에 넣음
+                len = $("input[name='hobby']:checked").length;
+                s += "내 취미는 " + len + "개<br>";
+                if (len > 0) {
+                    s += "취 미 : ";
+                    // 배열부터 구해서 is(":checked") 사용 #1
+                    // $("input[name='hobby']").each(function(){
+                    //     if($(this).is(":checked")){
+                    //         s+="["+$(this).val()+"]&nbsp;";
+                    //     }
+                    // });
+                    // s+="<br>";
+
+                    // 체크된거만 배열 구해서 반복 #2
+                    // $("input[name='hobby']:checked").each(function () {
+                    //     s+="["+$(this).val()+"]&nbsp;";
+                    // });
+
+                    // each안에 배열을 넣어서 is(":checked") 사용 #3
+                    $.each($("input[name='hobby']"), (function () {
+                        if ($(this).is(":checked")) {
+                            s += "[" + $(this).val() + "]&nbsp;";
+                        }
+                    }));
+
+                    // each안에 체크된 배열 구해서 반복 #4
+                    // $.each($("input[name='hobby']:checked"), function (len) {
+                    //     s += $(this).val() + "<br>";
+                }
+                $("#result").html(s);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div style="margin:30px;">
+        <h2>당신의 고향은?</h2>
+        <label><input type="radio" name="gohang" value="서울" checked>&nbsp;&nbsp;서울</label>&nbsp;&nbsp;
+        <label><input type="radio" name="gohang" value="제주도">&nbsp;&nbsp;제주도</label>&nbsp;&nbsp;
+        <label><input type="radio" name="gohang" value="부산">&nbsp;&nbsp;부산</label>&nbsp;&nbsp;
+        <label><input type="radio" name="gohang" value="경기도">&nbsp;&nbsp;경기도</label>
+        <br><br>
+        <h2>당신의 취미는?</h2>
+        <label><input type="checkbox" name="hobby" value="낚시">&nbsp;&nbsp;낚시</label>&nbsp;&nbsp;
+        <label><input type="checkbox" name="hobby" value="게임">&nbsp;&nbsp;게임</label>&nbsp;&nbsp;
+        <label><input type="checkbox" name="hobby" value="여행">&nbsp;&nbsp;여행</label>&nbsp;&nbsp;
+        <label><input type="checkbox" name="hobby" value="영화감상">&nbsp;&nbsp;영화감상</label>
+        <br><br>
+        <button type="button" class="btn btn-info btn-lg" style="margin-left:200px;width:150px;">결과 확인</button>
+        <br><br>
+        <div id="result"></div>
+    </div>
+</body>
+
+</html>

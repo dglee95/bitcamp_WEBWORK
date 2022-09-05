@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        * {
+            font-family: 'Gugi';
+        }
+        #mypen>div{
+            width: 28px;
+            height: 28px;
+            float: left;
+            cursor: pointer;
+            border: 1px solid gray;
+            margin-right: 3.6px;
+        }
+
+        #can{
+            border:1px solid black;
+            cursor: crosshair;
+        }
+
+    </style>
+    <script>
+        $(function(){
+            var draw=false;//마우스 버튼을 클릭시 true, 버튼 놓으면 false
+            var can=document.getElementById("can");
+            var ctx=can.getContext("2d");
+            var preX,preY;//마우스 움직이기 전 좌표를 저장하기 위한 변수
+            //초기펜색상
+            ctx.strokeStyle='black';
+            //초기펜굵기
+            ctx.lineWidth=3;
+            //선의 끝모양
+            ctx.lineCap="round";
+
+            //캔버스에 대한 이벤트 (down up move)
+            $("#can").bind({
+                mousedown:function(e){
+                    draw=true;
+                    //현재 좌표를 저장해둔다
+                    preX=e.pageX;
+                    preY=e.pageY-60;
+                },mouseup:function(){
+                    draw=false;
+                },mousemove:function(e){
+                    if(draw){
+                        ctx.beginPath();
+                        //선을 그리기 위한 위치로 이동
+                        ctx.moveTo(preX,preY);
+                        //직전좌표부터 현재좌표까지 선을 그린다
+                        ctx.lineTo(e.pageX,e.pageY-60);
+                        ctx.stroke();
+                        ctx.closePath();
+                        //현재좌표를 이동전에 저장해둔다
+                        preX=e.pageX;
+                        preY=e.pageY-60;
+                    }
+                }
+            });
+
+            //색상표 클릭시 선색 변경하기 위한 이벤트
+            $("#mypen>div").click(function(){
+                ctx.strokeStyle=$(this).css("background-color");
+            });
+
+            //화면초기화 버튼
+            $("#btn1").click(function(){
+                ctx.clearRect(0,0,500,500);
+            });
+
+            //지우개(선 색을 흰색으로)
+            $("#btn2").click(function(){
+                ctx.strokeStyle="#ffff";//3개,4개,6개 됨
+            });
+
+            //별도보관
+            $("#btn3").click(function(){
+                var myimg="<img src='"+can.toDataURL()+"'>";
+                $("hr.save").after(myimg);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h4>HTML5의 Canvas를 이용한 간단그림판</h4>
+    <br>
+    <canvas id="can" width="500" height="500" src="../미야자키/02.png"></canvas>
+    <div id="mypen">
+        <div style="background-color: black"></div>
+        <div style="background-color: orange"></div>
+        <div style="background-color: pink"></div>
+        <div style="background-color: magenta"></div>
+        <div style="background-color: cyan"></div>
+        <div style="background-color: gray"></div>
+        <div style="background-color: yellow"></div>
+        <div style="background-color: purple"></div>
+        <div style="background-color: green"></div>
+        <div style="background-color: red"></div>
+        <div style="background-color: gold"></div>
+        <div style="background-color: tomato"></div>
+        <div style="background-color: blue"></div>
+        <div style="background-color: #cd5c5c"></div>
+        <div style="background-color: #8fbc8f"></div>
+        <div style="background-color: #98fb98"></div>
+    </div>
+    <br style="clear:both;"><br>
+    <button type="button" id="btn1" class="btn btn-neon-purple">화면초기화</button>
+    &emsp;
+    <button type="button" id="btn2" class="btn btn-neon-red">지우개</button>
+    &emsp;
+    <button type="button" id="btn3" class="btn btn-neon-blue">별도보관</button>
+    <hr class="save">
+</body>
+
+</html>

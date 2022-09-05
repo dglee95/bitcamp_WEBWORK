@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Hi+Melody&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+
+</head>
+    <style>
+        body *{
+            font-size: 2rem; /*바디 태그 기준으로 2배 2em 상위기준 점점 하위로 갈수록 2배로 커짐*/
+            
+        }
+        .kora{
+            font-family: 'Black And White Picture';
+            color: magenta;
+            /*rgba(r,g,b,투명도(0~1))*/
+            background-color: #cacaca;
+        }
+        .korb{
+            font-family: 'Jua';
+            border: 5px solid gray;
+            width: 500px;
+            height: 150px;
+            line-height: 150px; /*세로방향 가운데: 1줄일 경우 height와 line-height를 똑같이*/
+            vertical-align: center; /*세로방향 가운데 안됨*/
+            text-align: center;/*가로방향 가운데*/
+            color: chartreuse;
+            background-color: darkviolet;
+        }
+        .korc{
+            font-family: 'Hi Melody';
+            
+            width: 600px;
+            height: 100px;
+            border: 5px double orangered;
+            margin-top: 20px;/*태그 바깥 쪽 여백*/
+            /*태그 안 왼쪽 여백 */
+            /* padding-left: 50px;
+            padding-top: 20px;태그 안 위쪽 */
+            padding: 20px 20px;/*top left 순*/
+            color: greenyellow;
+            background-color: springgreen;
+        }
+        .enga{
+           font-family: 'Edu VIC WA NT Beginner';
+           width: 600px;
+           height: 100px;
+           border: 5px inset gold;
+           color: yellow;
+           background-color: rgba(170,251,199,0.6);
+           background-image: url('../미야자키/05.png');/*배경이미지지정 기본값이 반복(여러개)*/
+           background-size: 30px 60px;/*이미지의 사이즈 조절 가로 세로*/
+           background-repeat: no-repeat;/*반복안하겠다는 의미, repeat-x/y:x방향으로만 y방향으로만*/
+            background-position: top center;
+        }
+        .engb{
+            font-family: 'Rubik Moonrocks';
+            color: deeppink;
+            width: 450px;
+            height: 400px;
+            background-color: rgba(241,1,211,0.88);
+            background-image: url('http://t1.daumcdn.net/thumb/R1000x0/?fname=https://i.imgur.com/OeJPEs3.jpg');
+            background-size: 150px 150px;            
+        }
+        .engc{
+            font-family: 'Edu VIC WA NT Beginner';
+            width: 200px;
+            height: 200px;
+            border: 5px dotted deeppink;
+            background: url('../고양이/cat0002.PNG') no-repeat top left;
+            background-size: 100px 100px;
+        }
+
+
+
+    </style>
+<body>
+    <span class="kora">오늘도 열심히 공부합시다!!</span><br>
+    <div class="korb">재미있는 HTML,CSS,Script!!</div>
+    <div class="korc">날씨가 너무 더워요!!</div>
+    <hr>
+    <div class="enga">Have a Good Time!!!</div>
+    <div class="engb">Bitcamp 701 Ban!!!</div>
+    <div class="engc">cat</div>
+
+
+
+
+</body>
+</html>

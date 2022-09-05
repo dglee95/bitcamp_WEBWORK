@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                //새로운 버튼 생성
+                var b1 = '<button type="button" class="btn btn-neon-yellow" id="btn2">버튼 2</button>';
+                $(this).after(b1);
+            });
+
+            // $("#btn2").click(function () {//안됨
+            //     var b2 = '<button type="button" class="btn btn-neon-red" id="btn3">버튼 3</button>';
+            //     $(this).after('<br>' + b2);
+            // });
+            //#btn2는 로딩 후 추가된 요소이므로 on을 이용해서 이벤트를 준다
+            $(document).on("click","#btn2",function(){
+                var b2='<button type="button" class="btn btn-neon-red" id="btn3">버튼 3</button>';
+                $(this).after('<br>'+b2);
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <h2>미래에 생길 요소들은 live(~1.7) 이나 on(1.8~) 으로 이벤트를 해야한다</h2>
+
+    <button type="button" class="btn btn-neon-orange" id="btn1">버튼 1</button>
+</body>
+
+</html>

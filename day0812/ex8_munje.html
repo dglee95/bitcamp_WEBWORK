@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dongle&family=Gugi&family=Hahmlet&family=Lobster&family=Rubik+Beastly&family=Rubik+Burned&family=Rubik+Marker+Hatch&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <style>
+        h2 {
+            font-family: "Gugi";
+            font-size: 25px;
+            display: inline-block;
+            user-select:none;
+        }
+        .h2{text-align: center;}
+
+        div.container {
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        div.div1 {
+            border: 3px solid lightgray;
+            margin-top: 30px;
+            width: 500px;
+            height: 320px;
+            border
+        }
+
+        @keyframes mymove {
+            0% {
+                background-color: red;
+                color: #53f8bf;
+            }
+
+            25% {
+                background-color: orangered;
+                color: blue;
+            }
+
+            50% {
+                background-color: goldenrod;
+                color: purple;
+            }
+
+            75% {
+                background-color: green;
+                color: violet;
+            }
+
+            100% {
+                background-color: darkblue;
+                color: white;
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                if ($("#tbold").is(":checked")) {
+                    $("h2").css("font-weight", "bold");
+                } else {
+                    $("h2").css("font-weight", "normal");
+                }
+
+                if ($("#tinc").is(":checked")) {
+                    $("h2").css("font-style", "oblique");
+                } else {
+                    $("h2").css("font-style", "normal");
+                }
+
+                if ($("#tul").is(":checked")) {
+                    $("h2").css("text-decoration", "underline");
+                } else {
+                    $("h2").css("text-decoration", "none");
+                }
+
+                if ($("#ani").is(":checked")) {
+                    $("h2").css("animation", "mymove 5s infinite");
+                } else {
+                    $("h2").css("animation", "none");
+                }
+
+                //option: selected를 안해도 val은 다 selected된 val을 들고옴
+                var tcolor = $("#tcolor option:selected").val();
+                $("h2").css("color", tcolor);
+
+                var tsize = $("#tsize option:selected").val();
+                $("h2").css("font-size", tsize);
+
+                var tff = $("#tff option:selected").val();
+                $("h2").css("font-family", tff);
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <span>문제 1</span>
+        <div class="div1">
+            <table style="border:1px solid black;margin-top: 10px;margin-left: 5px;width: 300px;">
+                <tr>
+                    <th>글꼴 모양을 선택하세요</th>
+                </tr>
+                <tr style="border-bottom: 1px solid gray;">
+                    <td>
+                        <label><input type="checkbox" id="tbold">굵게</label>
+                        <label><input type="checkbox" id="tinc">기울게</label>
+                        <label><input type="checkbox" id="tul">밑줄</label>
+                        <label><input type="checkbox" id="ani">애니메이션</label>
+                    </td>
+                </tr>
+                <tr style="border-bottom: 1px solid gray;height: 40px;">
+                    <th>글꼴 색상 선택
+                        <select id="tcolor">
+                            <option value="hotpink" selected>핫 핑크</option>
+                            <option value="green">초록</option>
+                            <option value="crimson">빨강</option>
+                            <option value="purple">보라</option>
+                            <option value="blue">파랑</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr style="border-bottom: 1px solid gray;height: 40px;">
+                    <th>글꼴 크기 선택
+                        <select id="tsize">
+                            <option value="35px">아주 크게</option>
+                            <option value="30px">크게</option>
+                            <option value="25px" selected>기본</option>
+                            <option value="20px">작게</option>
+                            <option value="15px">아주 작게</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr style="border-bottom: 1px solid gray;height: 40px;">
+                    <th>글꼴 선택
+                        <select id="tff">
+                            <option value="Single Day">Single Day</option>
+                            <option value="Gugi" selected>Gugi</option>
+                            <option value="Hahmlet">Hahmlet</option>
+                            <option value="Dongle">Dongle</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr style="text-align: center;">
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm" id="btn1">글꼴 변경</button>
+                    </td>
+                </tr>
+
+            </table>
+            <br><br>
+            <div class="h2" pointer-events="none">
+            <h2>안녕하세요. Have a Nice Day!!</h2>
+        </div>
+        </div>
+    </div>
+</body>
+
+</html>

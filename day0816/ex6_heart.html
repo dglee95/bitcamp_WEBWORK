@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .heart {
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            left: 200px;
+            top: 100px;
+        }
+
+        .glyphicon-heart-empty {
+            color: black;
+
+        }
+
+        .glyphicon-heart {
+            color: red;
+        }
+    </style>
+    <script>
+        $(function () {
+            var cnt = 0;
+            $("span").click(function () {
+                if (cnt % 2 == 0){
+                    cnt++;
+                    $(this).removeClass("glyphicon-heart-empty");
+                    $(this).addClass("glyphicon-heart");
+                    $(this).animate({fontSize:'200px'},1000,function(){
+                        $(this).css("font-size","30px");
+                    });
+                } else{
+                    cnt++;
+                    $(this).removeClass("glyphicon-heart");
+                    $(this).addClass("glyphicon-heart-empty");
+                }
+        });
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <span class="glyphicon glyphicon-heart-empty heart"></span>
+    <!-- <script>
+       $(".heart").click(function(){
+        var cls=$(this).attr("class");
+
+        $(this).animate({fontSize:'100px',left:'+=100px'},2000,function(){
+            $(this).css({
+               fontSize:'50px',
+               left:'200px' 
+            });
+            if(cls=='glyphicon glyphicon-heart-empty heart'){
+                $(this).attr("class","glyphicon glyphicon-heart heart");
+                $(this).css("color","red");
+            }else{
+                $(this).attr("class","glyphicon glyphicon-heart-empty heart");
+                $(this).css("color","black");
+            }
+        });
+       });
+    </script> -->
+
+
+</body>
+
+</html>

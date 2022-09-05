@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼이벤트1</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Hi+Melody&family=Rubik+Moonrocks&family=Song+Myung&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+
+    </style>
+    <script>//자바스크립트는 100% 정확하지 않아도 에러가 안 날 수도 있다.
+        window.onload = function () {
+            //이벤트는 여기서 코딩해야함 or 아니면 바디 밑 코딩
+            //버튼3 이벤트
+            var b3 = document.getElementById("btn3");
+            b3.onclick = function () {
+                var name = prompt("당신의 이름은??", "송혜교");//두번째 인자값은 이미 채워져있음
+                if (name == null)
+                    alert("취소버튼을 눌렀네요!!");
+                else
+                    alert("내 이름은 " + name + "입니다");
+            }
+        }
+
+        function hello() {
+            var ans = confirm("정말 삭제하시겠습니까?");
+            console.log(ans);//크롬 콘솔에서 확인하기, 반환타입이 true/false
+            if (ans)
+                alert("데이터를 삭제했습니다!!");
+            else
+                alert("삭제작업을 취소했습니다!");
+            //var 함수형 함수안에서 여러번 써도 다 덮어써짐 함수안에서 한번씩 다 써짐
+            //let 자바의 변수개념 메서드 안에서도 구역마다 변수선언
+        }
+
+    </script>
+</head>
+
+<body>
+    <button type="button" class="btn btn-green" onclick="alert('안녕하세요!!')">alert</button>
+    <input type="button" value="confirm" class="btn btn-pink" onclick="hello()">
+    <!--자바스크립트 함수 호출 script가 위에있어야 보기 쉬움-->
+    <button type="button" class="btn btn-black" id="btn3"">prompt</button>
+    
+    <script>
+
+
+    </script>
+        
+</body>
+
+</html>

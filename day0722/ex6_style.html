@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <div class="happy">
+        <div class="nice">Happy클래스 아래 Nice클래스</div>
+    </div>
+    <div id="one">아이디 One</div>
+    <div class="two">클래스 Two!!</div>
+    <div class="two">나도 클래스 Two!!</div>
+    <img src="../미야자키/01.png" class="imga">
+    <img src="../미야자키/02.png" class="imga">
+    <img src="../미야자키/03.png" class="imga">
+    <img src="../미야자키/04.png" class="imga">
+    
+    <hr >
+    <img src="../음식사진/3.jpg" class="imgb">
+    <img src="../음식사진/4.jpg" class="imgb">
+    <img src="../음식사진/5.jpg" class="imgb">
+    <img src="../음식사진/6.jpg" class="imgb">
+
+    <script>
+        //id one의 글자색을 빨강색으로 변경하기
+        document.getElementById("one").style.color="red";
+        //id one의 글자크기를 20px로 변경
+        //font-size -> 낙타표기법 fontSize
+        document.getElementById("one").style.fontSize="20px";
+        //class happy 아래의 nice의 border 설정
+        document.querySelector(".happy .nice").style.border="2px solid orange";
+        //happy클래스 밑에 nice클래스가 여러개 있으면 첫번째만 적용됨
+        //querySelector를 이용해서 id접근하기
+        document.querySelector("#one").style.backgroundColor="tomato";
+        //imga를 querySelector로 접근할 경우 첫번째 요소값만 얻어온다
+        document.querySelector(".imga").style.border="2px solid gray";
+        //같은 클래스에 같은 스타일이나 이벤트를 적용하고자 할 경우 
+        //getElementByClassName을 하거나 querySelectorAll
+        var s1=document.getElementsByClassName("imgb");
+        //이때 s1변수는 배열이다
+        console.log("s1="+s1.length);
+        //0번 배열의 너비를 120px로 변경하기
+        s1[0].style.width="120px";
+        //1번 배열의 너비를 300px로 변경하기
+        s1[1].style.width="300px";
+        //2번 배열의 border를 "5px inset gold"로 변경
+        s1[2].style.border="5px inset gold";
+        //s1배열 전체의 border-radius를 100px로 변경
+        //for문을 사용하세요
+        // for(var i=0;i<s1.length;i++)
+        //     s1[i].style.borderRadius="100px";
+        for(var n of s1)
+            n.style.borderRadius="100px";
+    
+        //같은 클래스 여러개의 요소값을 얻고자할경우 방법 #2
+        var imga=document.querySelectorAll(".imga");//. # 정확하게 써야함
+        //for문으로 마우스 이벤트
+        var myphoto="";
+        for(var s of imga){
+            //마우스 이벤트
+            s.onmouseover=function(){
+                //기존사진 얻어놓기
+                myphoto=this.getAttribute("src");//this는 s를 뜻함
+                //이미지변경
+                this.setAttribute("src","../미야자키/15.png");
+            }
+
+            //마우스가 벗어나면 다시 원래사진으로 변경
+            s.onmouseout=function(){
+                this.setAttribute("src",myphoto);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

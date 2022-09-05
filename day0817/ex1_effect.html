@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>jQuery Effect 함수들</h2>
+    <button type="button" class="btn btn-neon-red" id="btn1">Hide</button>
+    <button type="button" class="btn btn-neon-orange" id="btn2">Show</button>
+    <button type="button" class="btn btn-neon-yellow" id="btn3">Toggle</button>
+    <br>
+    <button type="button" class="btn btn-neon-green" id="btn4">slideUp</button>
+    <button type="button" class="btn btn-neon-blue" id="btn5">SlideDown</button>
+    <button type="button" class="btn btn-neon-purple" id="btn6">SlideToggle</button>
+    <br>
+    <button type="button" class="btn btn-neon-purple" id="btn7">FadeOut</button>
+    <button type="button" class="btn btn-neon-green" id="btn8">FadeIn</button>
+    <button type="button" class="btn btn-neon-purple" id="btn9">FadeToggle</button>
+
+    <br><br>
+    <img src="../미야자키/02.png">
+    <br>
+    <h1 class="alert alert-info" style="width:500px;">Have a Nice day!!!</h1>
+
+    <script>
+        $("#btn1").click(function(){
+            $("img").hide('slow');//hide에 slow하면 slide랑 비슷함 'slow' 'fast' 숫자
+            $("h1").hide('slow');
+        });
+        
+        $("#btn2").click(function(){
+            $("img").show('slow');
+            $("h1").show();
+        });
+        $("#btn3").click(function(){
+            $("img").toggle('slow');
+            $("h1").toggle();
+        });
+        $("#btn4").click(function(){
+            $("img").slideUp(2000);
+            $("h1").slideUp('slow');
+        });
+        $("#btn5").click(function(){
+            $("img").slideDown(2000);
+            $("h1").slideDown('slow');
+        });
+        $("#btn6").click(function(){
+            $("img").slideToggle(2000);
+            $("h1").slideToggle('slow');
+        });
+        $("#btn7").click(function(){
+            $("img").fadeOut('slow');
+            $("h1").fadeOut('slow');
+        });
+        $("#btn8").click(function(){
+            $("img").fadeIn('slow');
+            $("h1").fadeIn('slow');
+        });
+        $("#btn9").click(function(){
+            $("img").fadeToggle('slow');
+            $("h1").fadeToggle('slow');
+        });
+    </script>
+</body>
+</html>

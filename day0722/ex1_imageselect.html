@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 선택</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Hi+Melody&family=Rubik+Moonrocks&family=Song+Myung&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        #selimage {
+            font-size: 20px;
+            font-family: 'Song Myung';
+            width: 100px;
+        }
+
+        .container div img {
+            border: 10px groove tomato;
+            margin-top: 20px;
+            margin-left: 20px;
+
+        }
+
+        .container {
+            position: absolute;
+            /*절대좌표(왼쪽위가 0,0) relative 상대좌표*/
+            left: 200px;
+            /*x좌표*/
+            top: 100px;
+            /*y좌표*/
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var selimage = document.getElementById("selimage");
+            var photo = document.getElementById("photo");
+            //select 태그에서 option의 value값 얻기
+            //이 코드를 넣은 이유:select의 이름과 사진을 동일하게 하기위해서
+            var init_image = selimage.value;
+            //alert(init_image);
+            //현재 사진의 src 속성을 변경한다
+            photo.setAttribute("src", init_image);
+            //select문 이벤트-change
+            selimage.onchange = function () {
+                //모든 이벤트함수에는 이벤트를 발생한 객체에 대한 this라는
+                //변수가 기본으로 존재한다
+                console.log(this.value);
+                //사진의(photo)의 src에 this.value를 적용
+                photo.setAttribute("src", this.value);
+            };
+
+            document.getElementById("btnsmall").onclick = function () {
+                //photo의 현재 width 값 얻기
+                var w = photo.getAttribute("width");
+                console.log(w);
+                //타입 알아보기
+                console.log(typeof (w));
+                //숫자가 string으로 나와도 -,*,/등은 숫자로 계산
+                //10감소
+                w -= 10;
+                photo.setAttribute("width", w);
+            };
+
+            document.getElementById("btnlarge").onclick = function () {
+                //photo의 현재 width 값 얻기 (+할 경우 반드시 숫자로 변환)
+                var w = parseInt(photo.getAttribute("width"));
+                console.log(w);
+                //타입 알아보기
+                console.log(typeof (w));
+                //숫자가 string으로 나와도 -,*,/등은 숫자로 계산
+                //10증가
+                w += 10;
+                photo.setAttribute("width", w);
+            };
+        };
+
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="buttons">
+            <button type="button" class="btn btn-pink" id="btnsmall">점점 작게</button>
+            <button type="button" class="btn btn-pink" id="btnlarge">점점 크게</button>
+
+            <b style="margin-left:20px">사진 선택</b>
+            <!--인라인 형태로 마진-->
+            <select id="selimage">
+                <!--디폴트가 첫번째가 됨 selected 하면 첫번째로 됨-->
+                <option value="../연예인사진/15.jpg">설현</option>
+                <option value="../연예인사진/12.jpg">박보영</option>
+                <option value="../연예인사진/19.jpg">수지</option>
+                <option value="../연예인사진/2.jpg" selected>김우빈</option>
+            </select>
+
+        </div>
+        <div>
+            <img src="../연예인사진/19.jpg" id="photo" width="350">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--하위 태그 찾을때 children이나 find로 찾음-->
+    <h2>형제 노드,부모 노드 등등 찾기</h2>
+    <div class="one">
+        One
+        <div class="hana">하나</div>
+        <div>둘</div>
+        <div>셋</div>
+        <h3>h3 tag</h3>
+        <h4>h4 tag</h4>
+    </div>
+
+    <div class="two">
+        Two
+        <div class="hana">하나</div>
+        <div>둘</div>
+        <div>셋</div>
+        <h3>h3 tag</h3>
+        <h4>h4 tag</h4>
+    </div>
+    <script>
+        $("div.one>div.hana").css("color","red");
+        $("div.one>div.hana").parent().css("color","blue");//부모클래스의 하위도 모두 다
+
+        //div.two바로 아래의 div.hana를 찾아서 형제 중 h3태그의 글자색을 green으로 변경
+        $("div.two>div.hana").siblings("h3, h4").css("color","green");
+
+        //첫번째 h3의 부모(div.one)와 형제인 div.two와 h2
+        $("h3:eq(0)").parent().siblings().css("border","3px solid orange");
+
+        //div.two중 .hana를 찾아서 그 형제들 모두
+        //하위태그에서 찾을때 find,children
+        //find는 하위 모든 태그 / children은 직속 하위 태그
+        $("div.two").find(".hana").siblings().css("font-size",'2em');
+        $("body").children(".two").css("font-size","100px");
+
+
+        $("h2").siblings().find("div").css("background-color","pink");//div.hana도 형제div
+
+    </script>
+</body>
+</html>

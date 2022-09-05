@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style.css" rel="stylesheet">
+    <!--한글 Gugi / Single Day / Dongle / Hahmlet
+        영어 Rubik Beastly / Lobster / Rubik Marker Hatch / Rubik Burned-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ex6_style.css">
+    <style>
+        
+    </style>
+    <script>
+        $(function(){
+            $("#cd").click(function(){
+                $(this).animate({width:'0px'},2000);
+            });
+
+            $(".cover").click(function(){
+                $("#cd").animate({width:'300px'},2000);
+            });
+
+            //h1.title 클릭시 .music-list를 slideDown
+            $(".title").click(function(){
+                $(".music-list").slideToggle('slow');
+            });
+
+            //노래 제목 클릭시 클릭한 곳의 제목을 얻어서 h1.title에 넣기
+            // $("li").click(function(){
+            //     //노래제목 얻기
+            //     $(".title").text($(this).text());
+            //     //클릭한 곳의 class를 얻는다(music1,2,3)
+            //     var selectClass=$(this).attr('class');
+            //     //cd change-effect 주기
+            //     $("#cd").animate({width:'0px'},'slow',function(){
+            //         //cd변경하기
+            //         $("#cd").attr("class",selectClass);
+            //         $(this).animate({width:'300px'},'slow');    
+            //     });
+            //     //노래목록 사라지게하기
+            //     $(".music-list").slideUp('slow');
+            // });
+
+            $("li").click(function(){
+                //노래제목 얻기
+                $(".title").text($(this).text());
+                var selectClass=$(this).attr('class');
+                $("#cd").animate({width:'300px'},'slow',function(){
+                    $("#cd").attr("class",selectClass).animate({width:'300px'},1000);
+                    $("#cd").attr("class",selectClass).animate({width:'0px'},'slow');
+                });
+                //노래목록 사라지게하기
+                $(".music-list").slideUp('slow');
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <div class="album">
+        <div class="select-music">
+            <span class="spinner-border text-info spinner-border-lg"></span>
+            <h1 class="title">Now Playing</h1>
+            <ul class="music-list">
+                <li class="music1">Lost Stars</li>
+                <li class="music2">A Higher Place</li>
+                <li class="music3">Like A Fool</li>
+            </ul>
+        </div>
+        <img src="../jquery_image/cover.png" class="cover">
+        <div id="cd"></div>
+    </div>
+</body>
+</html>
